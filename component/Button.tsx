@@ -3,11 +3,13 @@
 import React from 'react';
 import { useState } from 'react';
 
-interface StyledButtonProps {
-  title: string;
+interface ButtonProps {
+  text: string;
+  className?: string; // Optional additional CSS classes
+  style: React.CSSProperties; // Inline styles
 }
 
-function StyledButton({ title }: StyledButtonProps) {
+function Button({ text, className, style }: ButtonProps) {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -15,22 +17,16 @@ function StyledButton({ title }: StyledButtonProps) {
     /*alert('Button clicked!');*/
   };
 
-  const buttonStyle = {
-    backgroundColor: isClicked ? '#4CAF50' : '#008CBA',
-    color: 'white',
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    transition: 'background-color 0.3s ease',
-  };
+ 
 
   return (
-    <button style={buttonStyle} onClick={handleClick}>
-      {isClicked ? 'Clicked!' : title}
+    <button 
+      className={className}
+      style={style} // Change background color on click>
+    >
+      { text}
     </button>
   );
 }
 
-export default StyledButton;
+export default Button;
