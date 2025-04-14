@@ -1,11 +1,17 @@
 import React from "react";
-import Button from "../component/Button";
 import Header from "../component/Header";
+import { Inter } from "next/font/google";
+import HeroSection from "../component/HeroSection";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <div className="${inter.className}">
+        <Header />
+        <HeroSection />
+      </div>
+    </>
   );
 }
